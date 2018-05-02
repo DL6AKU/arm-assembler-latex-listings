@@ -12,6 +12,7 @@ instructions:
   - QDSUB{cond}
   - MUL{cond}{S}
   - MLA{cond}{S}
+  - MLS{cond}
   - UMULL{cond}{S}
   - UMLAL{cond}{S}
   - UMAAL{cond}
@@ -45,6 +46,7 @@ instructions:
   - USADA8{cond}
   - MOV{cond}{S}
   - MVN{cond}{S}
+  - MOVT{cond}
   - MRS{cond}
   - MSR{cond}
   - MRA{cond}
@@ -56,6 +58,7 @@ instructions:
   - EOR{cond}{S}
   - ORR{cond}{S}
   - BIC{cond}{S}
+  - ORN{cond}{S}
   - CMP{cond}
   - CMN{cond}
   - SSAT{cond}
@@ -79,6 +82,7 @@ instructions:
   - REV{cond}
   - REV16{cond}
   - REVSH{cond}
+  - RBIT{cond}
   - SEL{cond}
   - B{cond}
   - BL{cond}
@@ -86,6 +90,7 @@ instructions:
   - BLX
   - BLX{cond}
   - BXJ{cond}
+  - CB{N}Z
   - CPSID
   - CPSIE
   - CPS
@@ -133,6 +138,29 @@ instructions:
   - STC2
   - PUSH{cond}
   - POP{cond}
+  - ADR{cond}
+  - ASR{cond}
+  - LSL{cond}
+  - LSR{cond}
+  - ROR{cond}
+  - RRX{cond}
+  - SDIV{cond}
+  - UDIV{cond}
+  - BFC{cond}
+  - BFI{cond}
+  - SBFX{cond}
+  - UBFX{cond}
+  - IT
+  - IT{ET}
+  - IT{ET}{ET}
+  - IT{ET}{ET}{ET}
+  - DMB
+  - DSB
+  - ISB
+  - SEV{cond}
+  - WFE{cond}
+  - SVC{cond}
+  - WFI{cond}
 directives:
   - ".2byte"
   - ".4byte"
@@ -336,9 +364,14 @@ prefix:
   - U
   - UQ
   - UH
+ET:
+  - E
+  - T
 S:
   S
 X:
   X
 R:
   R
+N:
+  N
